@@ -1,0 +1,780 @@
+/* =========================================
+   VARIÁVEIS E PALETA DE CORES
+   Rosa Claro + Verde-Sálvia + Branco
+========================================= */
+:root {
+  --sage-main: #8FA998;
+  --sage-dark: #4E6857;
+  --sage-deeper: #2D4034;
+  --sage-light: #E8F0EB;
+  --pink-main: #F7D6DC;
+  --pink-soft: #FDF2F4;
+  --pink-accent: #D98A9C;
+  --white: #FFFFFF;
+  --off-white: #FAFAFA;
+  --text-main: #2A332D;
+  --text-muted: #5A665E;
+  --border-subtle: rgba(143, 169, 152, 0.28);
+  --shadow-sm: 0 4px 14px rgba(45, 64, 52, 0.06);
+  --shadow-md: 0 12px 28px rgba(45, 64, 52, 0.09);
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --transition: 0.28s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--off-white);
+  color: var(--text-main);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--sage-deeper);
+  line-height: 1.25;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   CABEÇALHO E NAVEGAÇÃO (<header> e <nav>)
+========================================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--sage-deeper);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.brand-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--pink-main), var(--sage-main));
+  display: grid;
+  place-items: center;
+  color: var(--sage-deeper);
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--transition);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--pink-accent);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--sage-dark);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--pink-soft);
+  border: 1px solid var(--pink-main);
+  color: var(--sage-deeper);
+  font-size: 1.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================================
+   HERO / APRESENTAÇÃO DA PROFISSÃO
+========================================= */
+.hero {
+  background: linear-gradient(135deg, var(--pink-soft) 0%, var(--white) 55%, var(--sage-light) 100%);
+  padding: 4.5rem 0 4rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: var(--pink-main);
+  color: var(--sage-deeper);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  margin-bottom: 1.1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 4.2vw, 3.35rem);
+  margin-bottom: 0.85rem;
+}
+
+.hero-slogan {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--sage-dark);
+  font-style: italic;
+  margin-bottom: 1.35rem;
+  border-left: 4px solid var(--pink-accent);
+  padding-left: 1rem;
+}
+
+.hero-desc {
+  color: var(--text-muted);
+  font-size: 1.03rem;
+  margin-bottom: 1.75rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.78rem 1.45rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--sage-dark);
+  color: var(--white);
+  box-shadow: 0 6px 16px rgba(78, 104, 87, 0.24);
+}
+
+.btn-primary:hover {
+  background-color: var(--sage-deeper);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--pink-main);
+  color: var(--sage-deeper);
+}
+
+.btn-secondary:hover {
+  background-color: #f2c2cb;
+  transform: translateY(-2px);
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-card-img {
+  background: var(--white);
+  padding: 0.85rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.hero-card-img img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.floating-badge {
+  position: absolute;
+  bottom: -16px;
+  left: -16px;
+  background-color: var(--white);
+  border: 2px solid var(--pink-main);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.floating-badge strong {
+  display: block;
+  color: var(--sage-deeper);
+  font-size: 0.95rem;
+}
+
+.floating-badge span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   ESTILO PADRÃO DAS SEÇÕES (<section>)
+========================================= */
+section {
+  padding: 4.5rem 0;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.section-subtitle {
+  display: inline-block;
+  color: var(--sage-dark);
+  background-color: var(--sage-light);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.65rem;
+}
+
+.section-header h2 {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  margin-bottom: 0.75rem;
+}
+
+.section-header p {
+  color: var(--text-muted);
+}
+
+/* =========================================
+   ROTINA, ATRIBUIÇÕES E IMPACTO SOCIAL
+========================================= */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.pillar-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.85rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pink-accent);
+}
+
+.pillar-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--pink-soft);
+  color: var(--sage-deeper);
+  display: grid;
+  place-items: center;
+  font-size: 1.45rem;
+  margin-bottom: 1.1rem;
+}
+
+.pillar-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.65rem;
+}
+
+.pillar-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* =========================================
+   FATOS HISTÓRICOS (INTEGRAÇÃO COM HISTÓRIA)
+========================================= */
+.history-section {
+  background-color: var(--pink-soft);
+  border-top: 1px solid rgba(217, 138, 156, 0.25);
+  border-bottom: 1px solid rgba(217, 138, 156, 0.25);
+}
+
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  border-left: 3px solid var(--sage-main);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.timeline-item {
+  position: relative;
+  background-color: var(--white);
+  padding: 1.5rem 1.75rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -2.62rem;
+  top: 1.65rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--pink-accent);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2px var(--sage-main);
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--sage-dark);
+  background-color: var(--sage-light);
+  padding: 0.2rem 0.7rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.45rem;
+}
+
+.timeline-item p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* =========================================
+   PANORAMA ATUAL E MERCADO (GRÁFICOS & CARDS)
+========================================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card.highlight-pink {
+  background-color: var(--pink-soft);
+  border-color: var(--pink-main);
+}
+
+.stat-card.highlight-sage {
+  background-color: var(--sage-light);
+  border-color: var(--sage-main);
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--sage-deeper);
+  margin-bottom: 0.35rem;
+}
+
+.stat-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.market-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.chart-box, .areas-box {
+  background-color: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.85rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.chart-box h3, .areas-box h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.box-caption {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin-bottom: 1.35rem;
+}
+
+.bar-row {
+  margin-bottom: 1rem;
+}
+
+.bar-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.bar-track {
+  width: 100%;
+  height: 12px;
+  background-color: var(--sage-light);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--sage-main), var(--pink-accent));
+}
+
+.area-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.area-list li {
+  padding: 0.75rem 1rem;
+  background-color: var(--off-white);
+  border-left: 4px solid var(--sage-main);
+  border-radius: 8px;
+  font-size: 0.93rem;
+}
+
+.area-list li strong {
+  color: var(--sage-deeper);
+  display: block;
+}
+
+/* =========================================
+   STAND NA FEIRA DE PROFISSÕES
+========================================= */
+.stand-section {
+  background: linear-gradient(180deg, var(--white) 0%, var(--sage-light) 100%);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.stand-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: var(--pink-soft);
+  border: 1px solid var(--pink-main);
+  padding: 1rem 1.35rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+.stand-toolbar p {
+  font-size: 0.9rem;
+  color: var(--sage-deeper);
+  font-weight: 500;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.media-card {
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.media-preview {
+  position: relative;
+  height: 220px;
+  background-color: var(--sage-light);
+}
+
+.media-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-label {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--sage-deeper);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 1px solid var(--sage-main);
+  transition: background-color var(--transition);
+}
+
+.upload-label:hover {
+  background-color: var(--pink-main);
+}
+
+.upload-input {
+  display: none;
+}
+
+.media-caption {
+  padding: 1.15rem;
+  flex: 1;
+}
+
+.media-caption h4 {
+  font-size: 1.08rem;
+  margin-bottom: 0.35rem;
+}
+
+.media-caption p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.experience-box {
+  background-color: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-left: 6px solid var(--pink-accent);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.edit-hint {
+  font-size: 0.78rem;
+  background-color: var(--pink-soft);
+  color: var(--sage-deeper);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.editable-text {
+  color: var(--text-main);
+  font-size: 1rem;
+  padding: 0.4rem;
+  border-radius: 6px;
+  outline: none;
+  transition: background-color var(--transition);
+}
+
+.editable-text:focus {
+  background-color: var(--pink-soft);
+}
+
+/* =========================================
+   RODAPÉ / CRÉDITOS (<footer>)
+========================================= */
+footer {
+  background-color: var(--sage-deeper);
+  color: var(--white);
+  padding: 3.5rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+footer h3, footer h4 {
+  color: var(--pink-main);
+  margin-bottom: 0.85rem;
+}
+
+footer p, footer li {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+}
+
+.footer-credits-list, .footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer-links-list a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-links-list a:hover {
+  color: var(--pink-main);
+}
+
+.footer-bottom {
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* =========================================
+   RESPONSIVIDADE (TABLET E CELULAR)
+========================================= */
+@media (max-width: 960px) {
+  .hero-grid, .market-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pillars-grid, .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-badge {
+    left: 12px;
+    bottom: 12px;
+  }
+}
+
+@media (max-width: 680px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    flex-direction: column;
+    padding: 1.25rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .pillars-grid, .gallery-grid, .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 3rem 0;
+  }
+}
